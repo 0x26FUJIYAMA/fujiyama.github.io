@@ -134,7 +134,10 @@ body.annual .show-monthly { display: none; }
 body.annual .show-annual { display: block; }
 .show-annual { display: none; }
 .show-monthly { display: block; }
-/* paypal wrap - single container, no show/hide needed */
+.plan-cta { display: block; text-align: center; padding: 13px; border-radius: 8px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.2s; border: 1.5px solid var(--sand-deep); color: var(--ink); letter-spacing: 0.02em; margin-top: 4px; }
+.plan-cta:hover { border-color: var(--ink-mid); background: rgba(26,22,18,0.04); }
+.plan.featured .plan-cta { background: var(--jade); border-color: var(--jade); color: white; }
+.plan.featured .plan-cta:hover { background: var(--jade-light); }
 /* legal */
 #legal { background: white; }
 .legal-box { border: 1px solid var(--sand-deep); border-radius: 16px; overflow: hidden; }
@@ -344,7 +347,8 @@ footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
           <li>Cancellation handling</li>
           <li class="dim">No credit card required</li>
         </ul>
-        <div id="paypal-btn-trial"></div>
+        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-9ED8269022005582VNGZEMSI" target="_blank" class="plan-cta show-monthly">Start free trial →</a>
+        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-21L33068599439127NGZEOKA" target="_blank" class="plan-cta show-annual">Start free trial →</a>
       </div>
       <!-- Starter -->
       <div class="plan featured">
@@ -363,7 +367,8 @@ footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
           <li>Email support</li>
           <li class="dim">No lock-in, cancel any time</li>
         </ul>
-        <div id="paypal-btn-starter"></div>
+        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-9ED8269022005582VNGZEMSI" target="_blank" class="plan-cta show-monthly">Get started →</a>
+        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-21L33068599439127NGZEOKA" target="_blank" class="plan-cta show-annual">Get started →</a>
       </div>
     </div>
     <p style="margin-top:28px;font-size:13px;color:var(--ink-soft);">All prices in USD. Taxes may apply. Subscription renews automatically until cancelled.</p>
@@ -438,9 +443,7 @@ footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
   </div>
 </footer>
 
-<!-- PayPal SDK -->
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://www.paypal.com/sdk/js?client-id=AeqvYgB2_7DrhJjAcV24czJFPU1CF-ouWA6BCTw-H6HaEZesKFbpJCIv5G7DxA4t8xI8atMKwLdQaL2m&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<!-- PayPal: direct links, no SDK needed -->
 
 <script>
 const hamburger = document.getElementById('hamburger');
@@ -451,12 +454,10 @@ document.addEventListener('click', (e) => { if (!hamburger.contains(e.target) &&
 
 function setPlan(mode) {
   if (mode === 'annual') {
-    currentPlan = PLAN_ANNUAL;
     document.body.classList.add('annual');
     document.getElementById('btn-annual').classList.add('active');
     document.getElementById('btn-monthly').classList.remove('active');
   } else {
-    currentPlan = PLAN_MONTHLY;
     document.body.classList.remove('annual');
     document.getElementById('btn-monthly').classList.add('active');
     document.getElementById('btn-annual').classList.remove('active');
@@ -471,30 +472,6 @@ document.querySelectorAll('.feat, .step, .who-item, .plan, .faq-item').forEach(e
   observer.observe(el);
 });
 
-
-var annualRendered = false;
-
-// 現在のプランID（デフォルト月払い）
-var PLAN_MONTHLY = 'P-9ED8269022005582VNGZEMSI';
-var PLAN_ANNUAL  = 'P-21L33068599439127NGZEOKA';
-var currentPlan  = PLAN_MONTHLY;
-
-function makeBtn(containerId) {
-  paypal.Buttons({
-    style: { shape: 'rect', color: 'blue', layout: 'vertical', label: 'subscribe' },
-    createSubscription: function(data, actions) {
-      return actions.subscription.create({ plan_id: currentPlan });
-    },
-    onApprove: function(data) { alert(data.subscriptionID); }
-  }).render('#' + containerId);
-}
-
-// PayPal SDKが読み込めた場合のみrender（ローカル環境・SDK失敗時のクラッシュ防止）
-window.addEventListener('load', function() {
-  if (typeof paypal === 'undefined') return;
-  makeBtn('paypal-btn-trial');
-  makeBtn('paypal-btn-starter');
-});
 </script>
 
 </body>
