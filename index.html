@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,9 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
-/* ─── Reset ─────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
   --sand:       #f5f0e8;
   --sand-dark:  #e8e1d5;
@@ -25,718 +24,108 @@
   --gold:       #c9862a;
   --gold-light: #f0a33c;
   --red:        #c0392b;
-  --serif:      'Cormorant Garamond', Georgia, serif;
-  --sans:       'Plus Jakarta Sans', system-ui, sans-serif;
-  --mono:       'DM Mono', 'Courier New', monospace;
-  --radius:     12px;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Plus Jakarta Sans', system-ui, sans-serif;
+  --mono:  'DM Mono', 'Courier New', monospace;
+  --radius: 12px;
 }
-
 html { scroll-behavior: smooth; }
-
-body {
-  background: var(--sand);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.65;
-  overflow-x: hidden;
-}
-
-/* ─── Nav ───────────────────────────────────── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 200;
-  padding: 0 48px;
-  height: 68px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(245,240,232,0.9);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(26,22,18,0.08);
-}
-
-.logo {
-  font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--ink);
-  text-decoration: none;
-}
+body { background: var(--sand); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.65; overflow-x: hidden; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 48px; height: 68px; display: flex; align-items: center; justify-content: space-between; background: rgba(245,240,232,0.9); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(26,22,18,0.08); }
+.logo { font-family: var(--serif); font-size: 24px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink); text-decoration: none; }
 .logo em { font-style: italic; color: var(--jade); }
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  list-style: none;
-}
-.nav-links a {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--ink-soft);
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  transition: color 0.2s;
-}
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--ink-soft); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; }
 .nav-links a:hover { color: var(--ink); }
-
-.nav-cta {
-  background: var(--jade) !important;
-  color: var(--sand) !important;
-  padding: 9px 22px;
-  border-radius: 6px;
-  font-weight: 700 !important;
-  transition: background 0.2s !important;
-}
+.nav-cta { background: var(--jade) !important; color: var(--sand) !important; padding: 9px 22px; border-radius: 6px; font-weight: 700 !important; transition: background 0.2s !important; }
 .nav-cta:hover { background: var(--jade-light) !important; }
-
-/* ─── Hero ──────────────────────────────────── */
-.hero {
-  min-height: 100vh;
-  padding: 120px 48px 80px;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 60px;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-}
-
-/* Decorative texture */
-.hero::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a1612' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero-left {
-  position: relative;
-  z-index: 1;
-  animation: fadeUp 0.7s ease both;
-}
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--jade);
-  margin-bottom: 28px;
-}
-.hero-eyebrow::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 1px;
-  background: var(--jade);
-}
-
-h1 {
-  font-family: var(--serif);
-  font-size: clamp(52px, 6vw, 88px);
-  font-weight: 300;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin-bottom: 32px;
-  color: var(--ink);
-}
-
-h1 strong {
-  font-weight: 600;
-  display: block;
-}
-
-h1 em {
-  font-style: italic;
-  color: var(--jade);
-}
-
-.hero-desc {
-  font-size: 18px;
-  color: var(--ink-soft);
-  line-height: 1.75;
-  max-width: 500px;
-  margin-bottom: 44px;
-  font-weight: 300;
-}
-
-.cta-row {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.btn-jade {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--jade);
-  color: var(--sand);
-  padding: 15px 32px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 15px;
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  transition: all 0.25s;
-}
-.btn-jade:hover {
-  background: var(--jade-light);
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(13,92,71,0.25);
-}
-
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--ink-mid);
-  padding: 15px 28px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 500;
-  text-decoration: none;
-  border: 1.5px solid var(--sand-deep);
-  transition: all 0.2s;
-}
-.btn-ghost:hover {
-  border-color: var(--ink-mid);
-  background: rgba(26,22,18,0.04);
-}
-
-.hero-note {
-  margin-top: 20px;
-  font-size: 13px;
-  color: var(--ink-soft);
-}
+.hero { min-height: 100vh; padding: 120px 48px 80px; display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto; position: relative; }
+.hero::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a1612' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
+.hero-left { position: relative; z-index: 1; animation: fadeUp 0.7s ease both; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--jade); margin-bottom: 28px; }
+.hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--jade); }
+h1 { font-family: var(--serif); font-size: clamp(52px, 6vw, 88px); font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 32px; color: var(--ink); }
+h1 strong { font-weight: 600; display: block; }
+h1 em { font-style: italic; color: var(--jade); }
+.hero-desc { font-size: 18px; color: var(--ink-soft); line-height: 1.75; max-width: 500px; margin-bottom: 44px; font-weight: 300; }
+.cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.btn-jade { display: inline-flex; align-items: center; gap: 8px; background: var(--jade); color: var(--sand); padding: 15px 32px; border-radius: 8px; font-weight: 700; font-size: 15px; text-decoration: none; letter-spacing: 0.02em; transition: all 0.25s; }
+.btn-jade:hover { background: var(--jade-light); transform: translateY(-2px); box-shadow: 0 16px 40px rgba(13,92,71,0.25); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-mid); padding: 15px 28px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; border: 1.5px solid var(--sand-deep); transition: all 0.2s; }
+.btn-ghost:hover { border-color: var(--ink-mid); background: rgba(26,22,18,0.04); }
+.hero-note { margin-top: 20px; font-size: 13px; color: var(--ink-soft); }
 .hero-note strong { color: var(--gold); }
-
-/* Hero right — chat mockup */
-.hero-right {
-  position: relative;
-  z-index: 1;
-  animation: fadeUp 0.7s 0.15s ease both;
-}
-
-.chat-phone {
-  background: #1c1c1e;
-  border-radius: 40px;
-  padding: 16px;
-  box-shadow:
-    0 40px 80px rgba(26,22,18,0.2),
-    0 0 0 1px rgba(26,22,18,0.08);
-  position: relative;
-}
-
-.chat-phone::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 28px;
-  background: #1c1c1e;
-  border-radius: 0 0 20px 20px;
-  z-index: 1;
-}
-
-.chat-screen {
-  background: #ece5dd;
-  border-radius: 28px;
-  overflow: hidden;
-  min-height: 540px;
-  display: flex;
-  flex-direction: column;
-}
-
-.chat-header {
-  background: #075e54;
-  padding: 44px 20px 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.chat-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--jade-glow), var(--jade));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--serif);
-  font-size: 18px;
-  color: white;
-  font-weight: 600;
-}
-
-.chat-header-info h4 {
-  color: white;
-  font-size: 15px;
-  font-weight: 600;
-  font-family: var(--sans);
-}
-.chat-header-info p {
-  color: rgba(255,255,255,0.7);
-  font-size: 12px;
-}
-
-.chat-body {
-  flex: 1;
-  padding: 16px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  overflow: hidden;
-}
-
-.msg {
-  max-width: 80%;
-  padding: 10px 14px;
-  border-radius: 12px;
-  font-size: 14px;
-  line-height: 1.45;
-  font-family: var(--sans);
-  position: relative;
-}
-
-.msg-time {
-  font-size: 10px;
-  color: rgba(0,0,0,0.4);
-  margin-top: 4px;
-  text-align: right;
-}
-
-.msg-bot {
-  background: white;
-  border-radius: 4px 12px 12px 12px;
-  color: #1a1a1a;
-  align-self: flex-start;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  animation: msgIn 0.4s ease both;
-}
-
-.msg-user {
-  background: #dcf8c6;
-  border-radius: 12px 4px 12px 12px;
-  color: #1a1a1a;
-  align-self: flex-end;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  animation: msgIn 0.4s ease both;
-}
-
+.hero-right { position: relative; z-index: 1; animation: fadeUp 0.7s 0.15s ease both; }
+.chat-phone { background: #1c1c1e; border-radius: 40px; padding: 16px; box-shadow: 0 40px 80px rgba(26,22,18,0.2), 0 0 0 1px rgba(26,22,18,0.08); position: relative; }
+.chat-phone::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 28px; background: #1c1c1e; border-radius: 0 0 20px 20px; z-index: 1; }
+.chat-screen { background: #ece5dd; border-radius: 28px; overflow: hidden; min-height: 540px; display: flex; flex-direction: column; }
+.chat-header { background: #075e54; padding: 44px 20px 14px; display: flex; align-items: center; gap: 12px; }
+.chat-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--jade-glow), var(--jade)); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 18px; color: white; font-weight: 600; }
+.chat-header-info h4 { color: white; font-size: 15px; font-weight: 600; font-family: var(--sans); }
+.chat-header-info p { color: rgba(255,255,255,0.7); font-size: 12px; }
+.chat-body { flex: 1; padding: 16px 12px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+.msg { max-width: 80%; padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.45; font-family: var(--sans); position: relative; }
+.msg-time { font-size: 10px; color: rgba(0,0,0,0.4); margin-top: 4px; text-align: right; }
+.msg-bot { background: white; border-radius: 4px 12px 12px 12px; color: #1a1a1a; align-self: flex-start; box-shadow: 0 1px 2px rgba(0,0,0,0.1); animation: msgIn 0.4s ease both; }
+.msg-user { background: #dcf8c6; border-radius: 12px 4px 12px 12px; color: #1a1a1a; align-self: flex-end; box-shadow: 0 1px 2px rgba(0,0,0,0.1); animation: msgIn 0.4s ease both; }
 .msg-bot:nth-child(1) { animation-delay: 0.5s; }
 .msg-user:nth-child(2) { animation-delay: 0.9s; }
 .msg-bot:nth-child(3) { animation-delay: 1.3s; }
 .msg-bot:nth-child(4) { animation-delay: 1.7s; }
 .msg-user:nth-child(5) { animation-delay: 2.1s; }
 .msg-bot:nth-child(6) { animation-delay: 2.5s; }
-
-@keyframes msgIn {
-  from { opacity: 0; transform: translateY(8px) scale(0.97); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ─── Section Shell ─────────────────────────── */
-.wrap {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 100px 48px;
-}
-
-.divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--sand-deep) 30%, var(--sand-deep) 70%, transparent);
-  max-width: 1120px;
-  margin: 0 auto;
-}
-
-.label {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--jade);
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.label::after {
-  content: '';
-  flex: 1;
-  max-width: 40px;
-  height: 1px;
-  background: var(--jade);
-}
-
-h2 {
-  font-family: var(--serif);
-  font-size: clamp(32px, 4vw, 54px);
-  font-weight: 300;
-  line-height: 1.15;
-  margin-bottom: 20px;
-}
+@keyframes msgIn { from { opacity: 0; transform: translateY(8px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 100px 48px; }
+.divider { height: 1px; background: linear-gradient(90deg, transparent, var(--sand-deep) 30%, var(--sand-deep) 70%, transparent); max-width: 1120px; margin: 0 auto; }
+.label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--jade); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+.label::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--jade); }
+h2 { font-family: var(--serif); font-size: clamp(32px, 4vw, 54px); font-weight: 300; line-height: 1.15; margin-bottom: 20px; }
 h2 strong { font-weight: 600; }
 h2 em { font-style: italic; color: var(--jade); }
-
-.sub {
-  font-size: 17px;
-  color: var(--ink-soft);
-  line-height: 1.8;
-  max-width: 580px;
-  margin-bottom: 56px;
-  font-weight: 300;
-}
-
-/* ─── Features ──────────────────────────────── */
-#features .features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--sand-deep);
-  border: 1px solid var(--sand-deep);
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.feat {
-  background: var(--sand);
-  padding: 40px 32px;
-  transition: background 0.2s;
-}
+.sub { font-size: 17px; color: var(--ink-soft); line-height: 1.8; max-width: 580px; margin-bottom: 56px; font-weight: 300; }
+#features .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--sand-deep); border: 1px solid var(--sand-deep); border-radius: 16px; overflow: hidden; }
+.feat { background: var(--sand); padding: 40px 32px; transition: background 0.2s; }
 .feat:hover { background: #faf7f2; }
-
-.feat-icon {
-  font-size: 26px;
-  margin-bottom: 18px;
-  display: block;
-}
-
-.feat h3 {
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
-
-.feat p {
-  font-size: 15px;
-  color: var(--ink-soft);
-  line-height: 1.7;
-}
-
-/* ─── For who ────────────────────────────────── */
+.feat-icon { font-size: 26px; margin-bottom: 18px; display: block; }
+.feat h3 { font-family: var(--serif); font-size: 22px; font-weight: 600; margin-bottom: 10px; line-height: 1.2; }
+.feat p { font-size: 15px; color: var(--ink-soft); line-height: 1.7; }
 #who { background: var(--ink); color: var(--sand); }
-#who .wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-#who h2 { color: var(--sand); }
-#who .label { color: var(--jade-glow); }
-#who .label::after { background: var(--jade-glow); }
-#who .sub { color: rgba(245,240,232,0.65); }
-
-.who-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.who-item {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  padding: 24px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 12px;
-  transition: background 0.2s, border-color 0.2s;
-}
-.who-item:hover {
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(29,186,144,0.3);
-}
-
-.who-emoji {
-  font-size: 28px;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.who-item h4 {
-  font-family: var(--serif);
-  font-size: 19px;
-  font-weight: 600;
-  color: var(--sand);
-  margin-bottom: 4px;
-}
-
-.who-item p {
-  font-size: 14px;
-  color: rgba(245,240,232,0.55);
-  line-height: 1.6;
-}
-
-/* ─── How it works ──────────────────────────── */
-#how .steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: var(--sand-deep);
-  border: 1px solid var(--sand-deep);
-  border-radius: 16px;
-  overflow: hidden;
-  margin-bottom: 0;
-}
-
-.step {
-  background: var(--sand);
-  padding: 40px 32px;
-  position: relative;
-}
-
-.step-n {
-  font-family: var(--serif);
-  font-size: 72px;
-  font-weight: 300;
-  color: var(--sand-deep);
-  line-height: 1;
-  margin-bottom: 20px;
-  letter-spacing: -0.03em;
-}
-
-.step h3 {
-  font-family: var(--serif);
-  font-size: 21px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  line-height: 1.2;
-}
-
-.step p {
-  font-size: 14px;
-  color: var(--ink-soft);
-  line-height: 1.7;
-}
-
-.step-arrow {
-  position: absolute;
-  top: 50%;
-  right: -14px;
-  transform: translateY(-50%);
-  width: 28px;
-  height: 28px;
-  background: var(--jade);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  z-index: 10;
-}
-
-/* ─── Pricing ────────────────────────────────── */
-#pricing {
-  background: var(--sand-dark);
-}
-
-#pricing .wrap {
-  text-align: center;
-}
-
-#pricing h2 { margin: 0 auto 16px; }
-#pricing .sub { margin: 0 auto 56px; }
-
-.toggle-row {
-  display: inline-flex;
-  align-items: center;
-  gap: 0;
-  background: var(--sand);
-  border: 1px solid var(--sand-deep);
-  border-radius: 100px;
-  padding: 4px;
-  margin-bottom: 48px;
-}
-
-.toggle-btn {
-  padding: 9px 24px;
-  border-radius: 100px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-  background: none;
-  color: var(--ink-soft);
-  transition: all 0.2s;
-  font-family: var(--sans);
-}
-.toggle-btn.active {
-  background: var(--jade);
-  color: white;
-}
-
-.save-badge {
-  display: inline-flex;
-  align-items: center;
-  background: var(--gold);
-  color: white;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 100px;
-  margin-left: 8px;
-  vertical-align: middle;
-  letter-spacing: 0.04em;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  max-width: 760px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.plan {
-  background: var(--sand);
-  border: 1.5px solid var(--sand-deep);
-  border-radius: 16px;
-  padding: 36px 30px;
-  position: relative;
-  transition: all 0.25s;
-}
-.plan:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(26,22,18,0.1);
-}
-
-.plan.featured {
-  border-color: var(--jade);
-  background: white;
-}
-
-.plan-badge {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--jade);
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 5px 18px;
-  border-radius: 100px;
-  white-space: nowrap;
-  letter-spacing: 0.04em;
-  font-family: var(--mono);
-}
-
-.plan-tier {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  margin-bottom: 20px;
-}
-
-.plan-price {
-  font-family: var(--serif);
-  font-size: 56px;
-  font-weight: 600;
-  line-height: 1;
-  color: var(--ink);
-  margin-bottom: 4px;
-}
+.who-list { display: flex; flex-direction: column; gap: 20px; }
+.who-item { display: flex; gap: 20px; align-items: flex-start; padding: 24px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; transition: background 0.2s, border-color 0.2s; }
+.who-item:hover { background: rgba(255,255,255,0.07); border-color: rgba(29,186,144,0.3); }
+.who-emoji { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+.who-item h4 { font-family: var(--serif); font-size: 19px; font-weight: 600; color: var(--sand); margin-bottom: 4px; }
+.who-item p { font-size: 14px; color: rgba(245,240,232,0.55); line-height: 1.6; }
+#how .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--sand-deep); border: 1px solid var(--sand-deep); border-radius: 16px; overflow: hidden; }
+.step { background: var(--sand); padding: 40px 32px; position: relative; }
+.step-n { font-family: var(--serif); font-size: 72px; font-weight: 300; color: var(--sand-deep); line-height: 1; margin-bottom: 20px; letter-spacing: -0.03em; }
+.step h3 { font-family: var(--serif); font-size: 21px; font-weight: 600; margin-bottom: 12px; line-height: 1.2; }
+.step p { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
+.step-arrow { position: absolute; top: 50%; right: -14px; transform: translateY(-50%); width: 28px; height: 28px; background: var(--jade); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; z-index: 10; }
+#pricing { background: var(--sand-dark); }
+.toggle-row { display: inline-flex; align-items: center; gap: 0; background: var(--sand); border: 1px solid var(--sand-deep); border-radius: 100px; padding: 4px; margin-bottom: 48px; }
+.toggle-btn { padding: 9px 24px; border-radius: 100px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; background: none; color: var(--ink-soft); transition: all 0.2s; font-family: var(--sans); }
+.toggle-btn.active { background: var(--jade); color: white; }
+.save-badge { display: inline-flex; align-items: center; background: var(--gold); color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; margin-left: 8px; vertical-align: middle; letter-spacing: 0.04em; }
+.pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 760px; margin: 0 auto; text-align: left; }
+.plan { background: var(--sand); border: 1.5px solid var(--sand-deep); border-radius: 16px; padding: 36px 30px; position: relative; transition: all 0.25s; }
+.plan:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(26,22,18,0.1); }
+.plan.featured { border-color: var(--jade); background: white; }
+.plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--jade); color: white; font-size: 12px; font-weight: 700; padding: 5px 18px; border-radius: 100px; white-space: nowrap; letter-spacing: 0.04em; font-family: var(--mono); }
+.plan-tier { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 20px; }
+.plan-price { font-family: var(--serif); font-size: 56px; font-weight: 600; line-height: 1; color: var(--ink); margin-bottom: 4px; }
 .plan-price sup { font-size: 22px; vertical-align: super; font-weight: 300; }
 .plan-price .per { font-family: var(--sans); font-size: 15px; font-weight: 400; color: var(--ink-soft); }
-
-.plan-billed {
-  font-size: 13px;
-  color: var(--ink-soft);
-  margin-bottom: 28px;
-  min-height: 20px;
-}
-.plan-billed .orig {
-  text-decoration: line-through;
-  color: var(--red);
-  font-size: 12px;
-}
-
-.plan-divider {
-  height: 1px;
-  background: var(--sand-dark);
-  margin-bottom: 24px;
-}
-
-.plan-features {
-  list-style: none;
-  margin-bottom: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.plan-features li {
-  font-size: 14px;
-  color: var(--ink-mid);
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-}
-.plan-features li::before {
-  content: '✓';
-  color: var(--jade);
-  font-weight: 700;
-  flex-shrink: 0;
-}
+.plan-billed { font-size: 13px; color: var(--ink-soft); margin-bottom: 28px; min-height: 20px; }
+.plan-billed .orig { text-decoration: line-through; color: var(--red); font-size: 12px; }
+.plan-divider { height: 1px; background: var(--sand-dark); margin-bottom: 24px; }
+.plan-features { list-style: none; margin-bottom: 32px; display: flex; flex-direction: column; gap: 10px; }
+.plan-features li { font-size: 14px; color: var(--ink-mid); display: flex; gap: 10px; align-items: flex-start; }
+.plan-features li::before { content: '✓'; color: var(--jade); font-weight: 700; flex-shrink: 0; }
 .plan-features li.dim { color: var(--ink-soft); }
 .plan-features li.dim::before { content: '–'; color: var(--sand-deep); }
-
-.plan-cta {
-  display: block;
-  text-align: center;
-  padding: 13px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 15px;
-  text-decoration: none;
-  transition: all 0.2s;
-  border: 1.5px solid var(--sand-deep);
-  color: var(--ink);
-  letter-spacing: 0.02em;
-}
-.plan.featured .plan-cta {
-  background: var(--jade);
-  border-color: var(--jade);
-  color: white;
-}
-.plan.featured .plan-cta:hover { background: var(--jade-light); }
-.plan-cta:hover { border-color: var(--ink-mid); }
-
-/* pricing toggle JS */
+/* pricing toggle */
 .annual-price { display: none; }
 .monthly-price { display: block; }
 body.annual .annual-price { display: block; }
@@ -745,356 +134,82 @@ body.annual .show-monthly { display: none; }
 body.annual .show-annual { display: block; }
 .show-annual { display: none; }
 .show-monthly { display: block; }
-
-/* ─── Legal ─────────────────────────────────── */
+/* paypal wrap - single container, no show/hide needed */
+/* legal */
 #legal { background: white; }
-
-#legal .wrap { padding-top: 80px; padding-bottom: 80px; }
-
-.legal-box {
-  border: 1px solid var(--sand-deep);
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.legal-hd {
-  background: var(--sand);
-  padding: 24px 36px;
-  border-bottom: 1px solid var(--sand-deep);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.legal-hd h3 {
-  font-family: var(--serif);
-  font-size: 20px;
-  font-weight: 600;
-  margin: 0;
-}
-.legal-hd p {
-  font-size: 12px;
-  color: var(--ink-soft);
-  font-family: var(--mono);
-  letter-spacing: 0.05em;
-}
-
-.legal-tbl {
-  width: 100%;
-  border-collapse: collapse;
-}
+.legal-box { border: 1px solid var(--sand-deep); border-radius: 16px; overflow: hidden; }
+.legal-hd { background: var(--sand); padding: 24px 36px; border-bottom: 1px solid var(--sand-deep); display: flex; align-items: center; gap: 14px; }
+.legal-hd h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 0; }
+.legal-hd p { font-size: 12px; color: var(--ink-soft); font-family: var(--mono); letter-spacing: 0.05em; }
+.legal-tbl { width: 100%; border-collapse: collapse; }
 .legal-tbl tr { border-bottom: 1px solid var(--sand-dark); }
 .legal-tbl tr:last-child { border-bottom: none; }
-
-.legal-tbl th {
-  width: 200px;
-  padding: 18px 36px;
-  text-align: left;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ink-soft);
-  vertical-align: top;
-  white-space: nowrap;
-  background: #fdfcfb;
-  border-right: 1px solid var(--sand-dark);
-}
-
-.legal-tbl td {
-  padding: 18px 36px 18px 28px;
-  font-size: 14px;
-  color: var(--ink);
-  line-height: 1.75;
-  vertical-align: top;
-}
-
+.legal-tbl th { width: 200px; padding: 18px 36px; text-align: left; font-size: 13px; font-weight: 700; color: var(--ink-soft); vertical-align: top; white-space: nowrap; background: #fdfcfb; border-right: 1px solid var(--sand-dark); }
+.legal-tbl td { padding: 18px 36px 18px 28px; font-size: 14px; color: var(--ink); line-height: 1.75; vertical-align: top; }
 .legal-tbl td a { color: var(--jade); text-decoration: none; }
 .legal-tbl td a:hover { text-decoration: underline; }
-
-.req {
-  display: inline-block;
-  color: var(--red);
-  font-family: var(--mono);
-  font-size: 12px;
-  background: rgba(192,57,43,0.06);
-  border: 1px solid rgba(192,57,43,0.18);
-  padding: 2px 9px;
-  border-radius: 4px;
-}
-
-/* ─── FAQ ────────────────────────────────────── */
-.faq-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 60px;
-}
-
-.faq-item {
-  padding: 28px 0;
-  border-bottom: 1px solid var(--sand-deep);
-}
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; }
+.faq-item { padding: 28px 0; border-bottom: 1px solid var(--sand-deep); }
 .faq-item:last-child { border-bottom: none; }
-
-.faq-item h4 {
-  font-family: var(--serif);
-  font-size: 19px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.faq-item p {
-  font-size: 14px;
-  color: var(--ink-soft);
-  line-height: 1.7;
-}
-
-/* ─── Footer ─────────────────────────────────── */
-footer {
-  background: var(--ink);
-  color: var(--sand);
-  padding: 56px 48px 40px;
-}
-
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 48px;
-  flex-wrap: wrap;
-  padding-bottom: 40px;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  margin-bottom: 32px;
-}
-
-.footer-logo {
-  font-family: var(--serif);
-  font-size: 26px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-}
+.faq-item h4 { font-family: var(--serif); font-size: 19px; font-weight: 600; margin-bottom: 10px; }
+.faq-item p { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
+footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; flex-wrap: wrap; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 32px; }
+.footer-logo { font-family: var(--serif); font-size: 26px; font-weight: 600; letter-spacing: 0.06em; }
 .footer-logo em { font-style: italic; color: var(--jade-glow); }
-
-.footer-tagline {
-  font-size: 13px;
-  color: rgba(245,240,232,0.45);
-  margin-top: 8px;
-  max-width: 240px;
-  line-height: 1.6;
-}
-
-.footer-links-group h5 {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(245,240,232,0.4);
-  margin-bottom: 16px;
-}
-
-.footer-links-group ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.footer-links-group a {
-  color: rgba(245,240,232,0.65);
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s;
-}
+.footer-tagline { font-size: 13px; color: rgba(245,240,232,0.45); margin-top: 8px; max-width: 240px; line-height: 1.6; }
+.footer-links-group h5 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,240,232,0.4); margin-bottom: 16px; }
+.footer-links-group ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links-group a { color: rgba(245,240,232,0.65); text-decoration: none; font-size: 14px; transition: color 0.2s; }
 .footer-links-group a:hover { color: var(--sand); }
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.footer-copy {
-  font-size: 13px;
-  color: rgba(245,240,232,0.3);
-}
-
-.footer-legal-links {
-  display: flex;
-  gap: 24px;
-}
-.footer-legal-links a {
-  color: rgba(245,240,232,0.35);
-  text-decoration: none;
-  font-size: 13px;
-  transition: color 0.2s;
-}
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-copy { font-size: 13px; color: rgba(245,240,232,0.3); }
+.footer-legal-links { display: flex; gap: 24px; }
+.footer-legal-links a { color: rgba(245,240,232,0.35); text-decoration: none; font-size: 13px; transition: color 0.2s; }
 .footer-legal-links a:hover { color: rgba(245,240,232,0.65); }
-
-/* ─── Hamburger ──────────────────────────────── */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 6px;
-  background: none;
-  border: none;
-  z-index: 300;
-}
-.hamburger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--ink);
-  border-radius: 2px;
-  transition: all 0.3s;
-}
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; z-index: 300; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.3s; }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-.mobile-menu {
-  display: none;
-  position: fixed;
-  top: 68px; left: 0; right: 0;
-  background: rgba(245,240,232,0.97);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--sand-deep);
-  padding: 24px;
-  flex-direction: column;
-  gap: 4px;
-  z-index: 199;
-  box-shadow: 0 12px 40px rgba(26,22,18,0.1);
-}
+.mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: rgba(245,240,232,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--sand-deep); padding: 24px; flex-direction: column; gap: 4px; z-index: 199; box-shadow: 0 12px 40px rgba(26,22,18,0.1); }
 .mobile-menu.open { display: flex; }
-.mobile-menu a {
-  font-size: 17px;
-  font-weight: 500;
-  color: var(--ink);
-  text-decoration: none;
-  padding: 12px 8px;
-  border-bottom: 1px solid var(--sand-dark);
-  transition: color 0.2s;
-}
-.mobile-menu a:last-child {
-  margin-top: 8px;
-  border-bottom: none;
-  background: var(--jade);
-  color: white;
-  text-align: center;
-  border-radius: 8px;
-  padding: 14px;
-  font-weight: 700;
-}
-
-/* ─── iPad (768–1100px) ──────────────────────── */
+.mobile-menu a { font-size: 17px; font-weight: 500; color: var(--ink); text-decoration: none; padding: 12px 8px; border-bottom: 1px solid var(--sand-dark); transition: color 0.2s; }
+.mobile-menu a:last-child { margin-top: 8px; border-bottom: none; background: var(--jade); color: white; text-align: center; border-radius: 8px; padding: 14px; font-weight: 700; }
 @media (max-width: 1100px) {
-  nav { padding: 0 32px; }
-  .nav-links { gap: 20px; }
-  .hero { padding: 110px 32px 72px; gap: 40px; }
-  .wrap { padding: 80px 32px; }
+  nav { padding: 0 32px; } .nav-links { gap: 20px; }
+  .hero { padding: 110px 32px 72px; gap: 40px; } .wrap { padding: 80px 32px; }
   #features .features-grid { grid-template-columns: repeat(2, 1fr); }
-  #how .steps { grid-template-columns: 1fr; }
-  .step-arrow { display: none; }
+  #how .steps { grid-template-columns: 1fr; } .step-arrow { display: none; }
   .pricing-grid { grid-template-columns: 1fr 1fr; gap: 16px; max-width: 100%; }
   .faq-grid { gap: 0 40px; }
   .chat-phone { transform: scale(0.9); transform-origin: top right; }
-  .footer-top { gap: 32px; }
 }
-
-/* ─── Mobile (<768px) ────────────────────────── */
 @media (max-width: 768px) {
-  nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 90px 20px 56px;
-    gap: 0;
-  }
-  .hero-right { display: none; }
-  h1 { font-size: clamp(40px, 10vw, 56px); }
-  .hero-desc { font-size: 16px; }
-  .cta-row { flex-direction: column; align-items: stretch; }
-  .btn-jade, .btn-ghost { justify-content: center; }
-
-  .wrap { padding: 56px 20px; }
-
-  /* section headings */
-  h2 { font-size: clamp(28px, 8vw, 40px); }
-  .sub { font-size: 15px; margin-bottom: 36px; }
-
-  /* features — single col */
-  #features .features-grid { grid-template-columns: 1fr; }
-  .feat { padding: 28px 24px; }
-
-  /* who — single col */
-  #who .wrap,
-  .who-wrap-inner {
-    grid-template-columns: 1fr !important;
-    gap: 36px !important;
-    padding: 56px 20px !important;
-  }
+  nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; }
+  .hero { grid-template-columns: 1fr; padding: 90px 20px 56px; gap: 0; } .hero-right { display: none; }
+  h1 { font-size: clamp(40px, 10vw, 56px); } .hero-desc { font-size: 16px; }
+  .cta-row { flex-direction: column; align-items: stretch; } .btn-jade, .btn-ghost { justify-content: center; }
+  .wrap { padding: 56px 20px; } h2 { font-size: clamp(28px, 8vw, 40px); } .sub { font-size: 15px; margin-bottom: 36px; }
+  #features .features-grid { grid-template-columns: 1fr; } .feat { padding: 28px 24px; }
+  #who .wrap, .who-wrap-inner { grid-template-columns: 1fr !important; gap: 36px !important; padding: 56px 20px !important; }
   .who-item { padding: 20px; }
-
-  /* how — single col */
-  #how .steps { grid-template-columns: 1fr; }
-  .step-arrow { display: none; }
-  .step { padding: 28px 24px; }
-  .step-n { font-size: 48px; margin-bottom: 12px; }
-
-  /* pricing — single col */
-  #pricing .wrap { padding: 56px 20px; }
-  .pricing-grid { grid-template-columns: 1fr; }
-  .pricing-grid .plan:first-child { grid-column: auto; }
-  .toggle-row { width: 100%; }
-  .toggle-btn { flex: 1; text-align: center; }
-
-  /* FAQ — single col */
-  .faq-grid { grid-template-columns: 1fr; gap: 0; }
-  .faq-item { padding: 20px 0; }
-
-  /* legal table */
-  #legal .wrap { padding: 48px 20px; }
-  .legal-hd { padding: 18px 20px; flex-wrap: wrap; gap: 8px; }
-  .legal-hd h3 { font-size: 16px; }
-  .legal-tbl th { display: none; }
-  .legal-tbl td {
-    padding: 16px 20px;
-    display: block;
-    border-bottom: 1px solid var(--sand-dark);
-  }
+  #how .steps { grid-template-columns: 1fr; } .step-arrow { display: none; } .step { padding: 28px 24px; } .step-n { font-size: 48px; margin-bottom: 12px; }
+  #pricing .wrap { padding: 56px 20px; } .pricing-grid { grid-template-columns: 1fr; }
+  .toggle-row { width: 100%; } .toggle-btn { flex: 1; text-align: center; }
+  .faq-grid { grid-template-columns: 1fr; gap: 0; } .faq-item { padding: 20px 0; }
+  #legal .wrap { padding: 48px 20px; } .legal-hd { padding: 18px 20px; flex-wrap: wrap; gap: 8px; } .legal-hd h3 { font-size: 16px; }
+  .legal-tbl th { display: none; } .legal-tbl td { padding: 16px 20px; display: block; border-bottom: 1px solid var(--sand-dark); }
   .legal-tbl tr:last-child td { border-bottom: none; }
-  .legal-tbl td::before {
-    content: attr(data-label);
-    display: block;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--ink-soft);
-    margin-bottom: 6px;
-    font-family: var(--mono);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  /* footer */
-  footer { padding: 40px 20px 28px; }
-  .footer-top { flex-direction: column; gap: 32px; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .footer-links-group { display: none; }
+  .legal-tbl td::before { content: attr(data-label); display: block; font-size: 11px; font-weight: 700; color: var(--ink-soft); margin-bottom: 6px; font-family: var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
+  footer { padding: 40px 20px 28px; } .footer-top { flex-direction: column; gap: 32px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; } .footer-links-group { display: none; }
 }
-
-/* ─── Small phones (<400px) ──────────────────── */
-@media (max-width: 400px) {
-  h1 { font-size: 36px; }
-  .plan-price { font-size: 44px; }
-}
+@media (max-width: 400px) { h1 { font-size: 36px; } .plan-price { font-size: 44px; } }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="logo">FUJI<em>YAMA</em></a>
   <ul class="nav-links">
@@ -1102,507 +217,283 @@ footer {
     <li><a href="#who">Who It's For</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#legal">Legal</a></li>
-    <li><a href="https://fujiyama.lemonsqueezy.com/checkout/buy/022ab795-902d-4809-8d9c-b579f4501912" class="nav-cta">Start Free Trial</a></li>
+    <li><a href="#pricing" class="nav-cta">Start Free Trial</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- Mobile menu -->
 <nav class="mobile-menu" id="mobile-menu">
   <a href="#features" onclick="closeMenu()">Features</a>
   <a href="#who" onclick="closeMenu()">Who It's For</a>
   <a href="#pricing" onclick="closeMenu()">Pricing</a>
   <a href="#legal" onclick="closeMenu()">Legal</a>
-  <a href="https://fujiyama.lemonsqueezy.com/checkout/buy/022ab795-902d-4809-8d9c-b579f4501912">Start Free Trial →</a>
+  <a href="#pricing" onclick="closeMenu()">Start Free Trial →</a>
 </nav>
 
-<!-- HERO -->
 <section>
-<div class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">LINE &amp; WhatsApp Booking Automation</div>
-    <h1>
-      Your shop,<br>
-      <strong>open 24/7.</strong><br>
-      <em>Without you.</em>
-    </h1>
-    <p class="hero-desc">
-      FUJIYAMA handles every booking, cancellation and confirmation automatically — via LINE or WhatsApp. Your Google Calendar fills itself. You get your evenings back.
-    </p>
-    <div class="cta-row">
-      <a href="https://fujiyama.lemonsqueezy.com/checkout/buy/022ab795-902d-4809-8d9c-b579f4501912" class="btn-jade">
-        Start free — 14 days →
-      </a>
-      <a href="#how" class="btn-ghost">See how it works</a>
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">LINE &amp; WhatsApp Booking Automation</div>
+      <h1>Your shop,<br><strong>open 24/7.</strong><br><em>Without you.</em></h1>
+      <p class="hero-desc">FUJIYAMA handles every booking, cancellation and confirmation automatically — via LINE or WhatsApp. Your Google Calendar fills itself. You get your evenings back.</p>
+      <div class="cta-row">
+        <a href="#pricing" class="btn-jade">Start free — 14 days →</a>
+        <a href="#how" class="btn-ghost">See how it works</a>
+      </div>
+      <p class="hero-note">No credit card required. <strong>5-minute setup.</strong> No coding.</p>
     </div>
-    <p class="hero-note">No credit card required. <strong>5-minute setup.</strong> No coding.</p>
-  </div>
-
-  <div class="hero-right">
-    <div class="chat-phone">
-      <div class="chat-screen">
-        <div class="chat-header">
-          <div class="chat-avatar">F</div>
-          <div class="chat-header-info">
-            <h4>FUJIYAMA Bot</h4>
-            <p>Online · Replies instantly</p>
+    <div class="hero-right">
+      <div class="chat-phone">
+        <div class="chat-screen">
+          <div class="chat-header">
+            <div class="chat-avatar">F</div>
+            <div class="chat-header-info"><h4>FUJIYAMA Bot</h4><p>Online · Replies instantly</p></div>
           </div>
-        </div>
-        <div class="chat-body">
-          <div class="msg msg-bot">
-            👋 Welcome! To book an appointment, just tell me the date and time.<br>
-            <div class="msg-time">09:01</div>
-          </div>
-          <div class="msg msg-user">
-            Tomorrow 2pm please
-            <div class="msg-time">09:02</div>
-          </div>
-          <div class="msg msg-bot">
-            ✅ <strong>Booking confirmed!</strong><br><br>
-            📋 ID: FJ20250314<br>
-            📅 Mar 15 · 14:00<br>
-            👤 Guest<br>
-            <div class="msg-time">09:02</div>
-          </div>
-          <div class="msg msg-bot">
-            To cancel, send:<br>
-            <em>Cancel FJ20250314</em>
-            <div class="msg-time">09:02</div>
-          </div>
-          <div class="msg msg-user">
-            What times are free on Friday?
-            <div class="msg-time">09:05</div>
-          </div>
-          <div class="msg msg-bot">
-            ✨ Friday Mar 16 — available slots:<br><br>
-            09:00 / 10:00 / 11:00<br>13:00 / 15:00 / 17:00
-            <div class="msg-time">09:05</div>
+          <div class="chat-body">
+            <div class="msg msg-bot">👋 Welcome! To book an appointment, just tell me the date and time.<br><div class="msg-time">09:01</div></div>
+            <div class="msg msg-user">Tomorrow 2pm please<div class="msg-time">09:02</div></div>
+            <div class="msg msg-bot">✅ <strong>Booking confirmed!</strong><br><br>📋 ID: FJ20250314<br>📅 Mar 15 · 14:00<br>👤 Guest<br><div class="msg-time">09:02</div></div>
+            <div class="msg msg-bot">To cancel, send:<br><em>Cancel FJ20250314</em><div class="msg-time">09:02</div></div>
+            <div class="msg msg-user">What times are free on Friday?<div class="msg-time">09:05</div></div>
+            <div class="msg msg-bot">✨ Friday Mar 16 — available slots:<br><br>09:00 / 10:00 / 11:00<br>13:00 / 15:00 / 17:00<div class="msg-time">09:05</div></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </section>
 
 <div class="divider"></div>
 
-<!-- FEATURES -->
 <section id="features">
-<div class="wrap">
-  <p class="label">Features</p>
-  <h2>Everything <em>automated.</em><br><strong>Nothing to manage.</strong></h2>
-  <p class="sub">From the first "hello" to the booking confirmation — FUJIYAMA handles the entire flow without you lifting a finger.</p>
-
-  <div class="features-grid">
-    <div class="feat">
-      <span class="feat-icon">💬</span>
-      <h3>LINE & WhatsApp native</h3>
-      <p>Works directly inside the apps your customers already use every day. No new app to download, no signup required from them.</p>
-    </div>
-    <div class="feat">
-      <span class="feat-icon">📅</span>
-      <h3>Auto Google Calendar sync</h3>
-      <p>Every booking lands in your calendar automatically. Double-bookings blocked. Cancellations removed. Zero manual entry.</p>
-    </div>
-    <div class="feat">
-      <span class="feat-icon">📊</span>
-      <h3>Live booking spreadsheet</h3>
-      <p>All reservations recorded to Google Sheets in real time. Share with staff, filter by date, export any time.</p>
-    </div>
-    <div class="feat">
-      <span class="feat-icon">🌏</span>
-      <h3>English · Thai · Japanese</h3>
-      <p>The bot detects your customer's language automatically and replies in kind. Built for multilingual Southeast Asia.</p>
-    </div>
-    <div class="feat">
-      <span class="feat-icon">❌</span>
-      <h3>Instant cancellations</h3>
-      <p>Customers just type "cancel" — the bot finds their booking, removes it from the calendar, and confirms back. Done.</p>
-    </div>
-    <div class="feat">
-      <span class="feat-icon">⚡</span>
-      <h3>5-minute setup</h3>
-      <p>Paste your LINE Webhook URL, connect your Google account. That's it. No servers, no code, no IT department needed.</p>
+  <div class="wrap">
+    <p class="label">Features</p>
+    <h2>Everything <em>automated.</em><br><strong>Nothing to manage.</strong></h2>
+    <p class="sub">From the first "hello" to the booking confirmation — FUJIYAMA handles the entire flow without you lifting a finger.</p>
+    <div class="features-grid">
+      <div class="feat"><span class="feat-icon">💬</span><h3>LINE & WhatsApp native</h3><p>Works directly inside the apps your customers already use every day. No new app to download, no signup required from them.</p></div>
+      <div class="feat"><span class="feat-icon">📅</span><h3>Auto Google Calendar sync</h3><p>Every booking lands in your calendar automatically. Double-bookings blocked. Cancellations removed. Zero manual entry.</p></div>
+      <div class="feat"><span class="feat-icon">📊</span><h3>Live booking spreadsheet</h3><p>All reservations recorded to Google Sheets in real time. Share with staff, filter by date, export any time.</p></div>
+      <div class="feat"><span class="feat-icon">🌏</span><h3>English · Thai · Japanese</h3><p>The bot detects your customer's language automatically and replies in kind. Built for multilingual Southeast Asia.</p></div>
+      <div class="feat"><span class="feat-icon">❌</span><h3>Instant cancellations</h3><p>Customers just type "cancel" — the bot finds their booking, removes it from the calendar, and confirms back. Done.</p></div>
+      <div class="feat"><span class="feat-icon">⚡</span><h3>5-minute setup</h3><p>Paste your LINE Webhook URL, connect your Google account. That's it. No servers, no code, no IT department needed.</p></div>
     </div>
   </div>
-</div>
 </section>
 
 <div class="divider"></div>
 
-<!-- WHO IT'S FOR (dark section) -->
 <section id="who" style="background:var(--ink);">
-<div class="wrap who-wrap-inner" style="max-width:1120px; margin:0 auto; padding:100px 48px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
-  <div>
-    <p class="label" style="color:var(--jade-glow);">Who It's For</p>
-    <h2 style="color:var(--sand);">Built for <em style="color:var(--jade-glow);">solo operators</em><br>who can't put<br><strong style="color:var(--sand);">their phone down.</strong></h2>
-    <p class="sub" style="color:rgba(245,240,232,0.55);">If you're spending more than 30 minutes a day answering booking messages, FUJIYAMA pays for itself in the first week.</p>
-  </div>
-  <div class="who-list">
-    <div class="who-item">
-      <div class="who-emoji">💇</div>
-      <div>
-        <h4>Hair &amp; beauty salons</h4>
-        <p>Thailand, Philippines, Japan — let customers book cuts, colors and treatments automatically, any hour.</p>
-      </div>
+  <div class="wrap who-wrap-inner" style="max-width:1120px;margin:0 auto;padding:100px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+    <div>
+      <p class="label" style="color:var(--jade-glow);">Who It's For</p>
+      <h2 style="color:var(--sand);">Built for <em style="color:var(--jade-glow);">solo operators</em><br>who can't put<br><strong style="color:var(--sand);">their phone down.</strong></h2>
+      <p class="sub" style="color:rgba(245,240,232,0.55);">If you're spending more than 30 minutes a day answering booking messages, FUJIYAMA pays for itself in the first week.</p>
     </div>
-    <div class="who-item">
-      <div class="who-emoji">🏸</div>
-      <div>
-        <h4>Sports courts &amp; studios</h4>
-        <p>Badminton courts, yoga studios, boxing gyms. Time-slot booking with availability checking built in.</p>
-      </div>
-    </div>
-    <div class="who-item">
-      <div class="who-emoji">🍽️</div>
-      <div>
-        <h4>Restaurants &amp; cafés</h4>
-        <p>Table reservations handled over LINE. Confirmation sent automatically. No phone calls at busy hours.</p>
-      </div>
-    </div>
-    <div class="who-item">
-      <div class="who-emoji">📚</div>
-      <div>
-        <h4>Tutors &amp; freelancers</h4>
-        <p>Schedule sessions, get reminders, handle rescheduling — without the back-and-forth messages.</p>
-      </div>
+    <div class="who-list">
+      <div class="who-item"><div class="who-emoji">💇</div><div><h4>Hair &amp; beauty salons</h4><p>Thailand, Philippines, Japan — let customers book cuts, colors and treatments automatically, any hour.</p></div></div>
+      <div class="who-item"><div class="who-emoji">🏸</div><div><h4>Sports courts &amp; studios</h4><p>Badminton courts, yoga studios, boxing gyms. Time-slot booking with availability checking built in.</p></div></div>
+      <div class="who-item"><div class="who-emoji">🍽️</div><div><h4>Restaurants &amp; cafés</h4><p>Table reservations handled over LINE. Confirmation sent automatically. No phone calls at busy hours.</p></div></div>
+      <div class="who-item"><div class="who-emoji">📚</div><div><h4>Tutors &amp; freelancers</h4><p>Schedule sessions, get reminders, handle rescheduling — without the back-and-forth messages.</p></div></div>
     </div>
   </div>
-</div>
 </section>
 
 <div class="divider"></div>
 
-<!-- HOW IT WORKS -->
 <section id="how">
-<div class="wrap">
-  <p class="label">How It Works</p>
-  <h2>Up and running<br><em>in three steps.</em></h2>
-  <p class="sub">No developer needed. If you can paste a URL, you can set up FUJIYAMA.</p>
-
-  <div class="steps">
-    <div class="step" style="position:relative;">
-      <div class="step-n">01</div>
-      <h3>Create a LINE channel</h3>
-      <p>Set up a free Messaging API channel at LINE Developers. Takes 10 minutes. We'll walk you through it.</p>
-      <div class="step-arrow">→</div>
-    </div>
-    <div class="step" style="position:relative;">
-      <div class="step-n">02</div>
-      <h3>Connect FUJIYAMA</h3>
-      <p>Paste your Channel Access Token and Google Calendar ID into the FUJIYAMA setup page. Hit Save.</p>
-      <div class="step-arrow">→</div>
-    </div>
-    <div class="step">
-      <div class="step-n">03</div>
-      <h3>Go live</h3>
-      <p>Copy the Webhook URL from FUJIYAMA and paste it into LINE Developers. Done — your bot is live instantly.</p>
+  <div class="wrap">
+    <p class="label">How It Works</p>
+    <h2>Up and running<br><em>in three steps.</em></h2>
+    <p class="sub">No developer needed. If you can paste a URL, you can set up FUJIYAMA.</p>
+    <div class="steps">
+      <div class="step" style="position:relative;"><div class="step-n">01</div><h3>Create a LINE channel</h3><p>Set up a free Messaging API channel at LINE Developers. Takes 10 minutes. We'll walk you through it.</p><div class="step-arrow">→</div></div>
+      <div class="step" style="position:relative;"><div class="step-n">02</div><h3>Connect FUJIYAMA</h3><p>Paste your Channel Access Token and Google Calendar ID into the FUJIYAMA setup page. Hit Save.</p><div class="step-arrow">→</div></div>
+      <div class="step"><div class="step-n">03</div><h3>Go live</h3><p>Copy the Webhook URL from FUJIYAMA and paste it into LINE Developers. Done — your bot is live instantly.</p></div>
     </div>
   </div>
-</div>
 </section>
 
 <div class="divider"></div>
 
-<!-- PRICING -->
 <section id="pricing" style="background:var(--sand-dark);">
-<div class="wrap" style="max-width:1120px; margin:0 auto; padding:100px 48px; text-align:center;">
-  <p class="label" style="justify-content:center;">Pricing</p>
-  <h2>Simple, <em>honest</em> pricing.</h2>
-  <p class="sub" style="margin:0 auto 48px;">Start free. Upgrade when you're ready. Cancel any time — no questions asked.</p>
-
-  <div class="toggle-row">
-    <button class="toggle-btn active" id="btn-monthly" onclick="setPlan('monthly')">Monthly</button>
-    <button class="toggle-btn" id="btn-annual" onclick="setPlan('annual')">Annual <span class="save-badge">Save 30%</span></button>
-  </div>
-
-  <div class="pricing-grid">
-    <!-- Free trial -->
-    <div class="plan">
-      <p class="plan-tier">Free Trial</p>
-      <div class="plan-price monthly-price"><sup>$</sup>0<span class="per"> / 14 days</span></div>
-      <div class="plan-price annual-price"><sup>$</sup>0<span class="per"> / 14 days</span></div>
-      <p class="plan-billed show-monthly">&nbsp;</p>
-      <p class="plan-billed show-annual">&nbsp;</p>
-      <div class="plan-divider"></div>
-      <ul class="plan-features">
-        <li>LINE booking automation</li>
-        <li>Google Calendar sync</li>
-        <li>Google Sheets log</li>
-        <li>EN / TH / JP language</li>
-        <li>Cancellation handling</li>
-        <li class="dim">No credit card required</li>
-      </ul>
-      <a href="https://fujiyama.lemonsqueezy.com/checkout/buy/022ab795-902d-4809-8d9c-b579f4501912" class="plan-cta">Start free trial</a>
+  <div class="wrap" style="max-width:1120px;margin:0 auto;padding:100px 48px;text-align:center;">
+    <p class="label" style="justify-content:center;">Pricing</p>
+    <h2>Simple, <em>honest</em> pricing.</h2>
+    <p class="sub" style="margin:0 auto 48px;">Start free. Upgrade when you're ready. Cancel any time — no questions asked.</p>
+    <div class="toggle-row">
+      <button class="toggle-btn active" id="btn-monthly" onclick="setPlan('monthly')">Monthly</button>
+      <button class="toggle-btn" id="btn-annual" onclick="setPlan('annual')">Annual <span class="save-badge">Save 30%</span></button>
     </div>
-
-    <!-- Starter -->
-    <div class="plan featured">
-      <div class="plan-badge">GET STARTED</div>
-      <p class="plan-tier">Starter</p>
-      <div class="plan-price monthly-price"><sup>$</sup>19<span class="per">/mo</span></div>
-      <div class="plan-price annual-price"><sup>$</sup>15<span class="per">/mo</span></div>
-      <p class="plan-billed show-monthly">billed monthly</p>
-      <p class="plan-billed show-annual">billed $180/year &nbsp;<span class="orig">$228</span></p>
-      <div class="plan-divider"></div>
-      <ul class="plan-features">
-        <li>Everything in Free Trial</li>
-        <li>1 LINE channel</li>
-        <li>Unlimited bookings</li>
-        <li>AI-powered replies (Claude/Gemini)</li>
-        <li>Email support</li>
-        <li class="dim">No lock-in, cancel any time</li>
-      </ul>
-      <a href="https://fujiyama.lemonsqueezy.com/checkout/buy/022ab795-902d-4809-8d9c-b579f4501912" class="plan-cta">
-        <span class="show-monthly">Get started — $19/mo</span>
-        <span class="show-annual">Get started — $180/yr</span>
-      </a>
-    </div>
-  </div>
-
-  <p style="margin-top:28px; font-size:13px; color:var(--ink-soft);">
-    All prices in USD. Taxes may apply. Subscription renews automatically until cancelled.
-  </p>
-</div>
-</section>
-
-<div class="divider"></div>
-
-<!-- FAQ -->
-<section id="faq">
-<div class="wrap">
-  <p class="label">FAQ</p>
-  <h2>Common <em>questions.</em></h2>
-
-  <div class="faq-grid">
-    <div class="faq-item">
-      <h4>Do my customers need to install anything?</h4>
-      <p>No. They just message your existing LINE or WhatsApp account as usual. FUJIYAMA works behind the scenes.</p>
-    </div>
-    <div class="faq-item">
-      <h4>What happens after the 14-day trial?</h4>
-      <p>The bot stops responding until you subscribe. Your booking history in Google Sheets stays safe.</p>
-    </div>
-    <div class="faq-item">
-      <h4>Can I use it for multiple businesses?</h4>
-      <p>Standard covers 1 LINE channel. Pro covers up to 5. For larger operations, contact us.</p>
-    </div>
-    <div class="faq-item">
-      <h4>What if the AI response is wrong?</h4>
-      <p>Booking actions (create, cancel, check) run on our reliable rule engine — no AI involved. AI is only used for casual chat replies.</p>
-    </div>
-    <div class="faq-item">
-      <h4>Is it available outside Thailand and the Philippines?</h4>
-      <p>Yes. FUJIYAMA works anywhere LINE or WhatsApp is available. Currently optimised for SEA time zones.</p>
-    </div>
-    <div class="faq-item">
-      <h4>Can I cancel my subscription?</h4>
-      <p>Yes, at any time via the LemonSqueezy customer portal or by emailing us. No lock-in, no penalty.</p>
-    </div>
-  </div>
-</div>
-</section>
-
-<div class="divider"></div>
-
-<!-- LEGAL / 特定商取引法 -->
-<section id="legal" style="background:white;">
-<div class="wrap" style="max-width:1120px; margin:0 auto; padding:80px 48px;">
-  <p class="label">Legal</p>
-  <h2>Seller <em>Information</em><br>&amp; <strong>Legal Notices</strong></h2>
-  <p class="sub" style="margin-bottom:40px;">As required under Japan's Act on Specified Commercial Transactions (特定商取引法に基づく表記) and Stripe's merchant requirements.</p>
-
-  <div class="legal-box">
-    <div class="legal-hd">
-      <span style="font-size:22px;">📋</span>
-      <div>
-        <h3>特定商取引法に基づく表記 / Specified Commercial Transactions Act</h3>
-        <p>TOKUSHO-HO DISCLOSURE · REQUIRED UNDER JAPANESE LAW</p>
+    <div class="pricing-grid">
+      <!-- Free Trial -->
+      <div class="plan">
+        <p class="plan-tier">Free Trial</p>
+        <div class="plan-price monthly-price"><sup>$</sup>0<span class="per"> / 14 days</span></div>
+        <div class="plan-price annual-price"><sup>$</sup>0<span class="per"> / 14 days</span></div>
+        <p class="plan-billed show-monthly">&nbsp;</p>
+        <p class="plan-billed show-annual">&nbsp;</p>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>LINE booking automation</li>
+          <li>Google Calendar sync</li>
+          <li>Google Sheets log</li>
+          <li>EN / TH / JP language</li>
+          <li>Cancellation handling</li>
+          <li class="dim">No credit card required</li>
+        </ul>
+        <div id="paypal-btn-trial"></div>
+      </div>
+      <!-- Starter -->
+      <div class="plan featured">
+        <div class="plan-badge">GET STARTED</div>
+        <p class="plan-tier">Starter</p>
+        <div class="plan-price monthly-price"><sup>$</sup>19<span class="per">/mo</span></div>
+        <div class="plan-price annual-price"><sup>$</sup>15<span class="per">/mo</span></div>
+        <p class="plan-billed show-monthly">billed monthly</p>
+        <p class="plan-billed show-annual">billed $180/year &nbsp;<span class="orig">$228</span></p>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>Everything in Free Trial</li>
+          <li>1 LINE channel</li>
+          <li>Unlimited bookings</li>
+          <li>AI-powered replies (Gemini)</li>
+          <li>Email support</li>
+          <li class="dim">No lock-in, cancel any time</li>
+        </ul>
+        <div id="paypal-btn-starter"></div>
       </div>
     </div>
-
-    <table class="legal-tbl">
-      <tr>
-        <th>事業者名<br><span style="font-weight:400;font-size:11px;">Business name</span></th>
-        <td data-label="Business name">石島佑実（屋号: FUJIYAMA）</td>
-      </tr>
-      <tr>
-        <th>代表者名<br><span style="font-weight:400;font-size:11px;">Representative</span></th>
-        <td data-label="Representative">石島佑実</td>
-      </tr>
-      <tr>
-        <th>所在地<br><span style="font-weight:400;font-size:11px;">Address</span></th>
-        <td data-label="Address">
-          請求があり次第、遅滞なく開示します。<br>
-          <span style="font-size:13px;color:var(--ink-soft);">Provided upon request without delay.</span>
-        </td>
-      </tr>
-      <tr>
-        <th>電話番号<br><span style="font-weight:400;font-size:11px;">Phone</span></th>
-        <td data-label="Phone">
-          請求があり次第、遅滞なく開示します。<br>
-          <span style="font-size:13px;color:var(--ink-soft);">Provided upon request without delay.</span>
-        </td>
-      </tr>
-      <tr>
-        <th>メールアドレス<br><span style="font-weight:400;font-size:11px;">Email</span></th>
-        <td data-label="Email">
-          <a href="mailto:oxbookbotstrategy@gmail.com">oxbookbotstrategy@gmail.com</a>
-        </td>
-      </tr>
-      <tr>
-        <th>販売URL<br><span style="font-weight:400;font-size:11px;">Sales URL</span></th>
-        <td data-label="Sales URL">
-          <a href="https://fujiyama.lemonsqueezy.com/checkout/buy/022ab795-902d-4809-8d9c-b579f4501912">
-            fujiyama.lemonsqueezy.com
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <th>商品・サービス内容<br><span style="font-weight:400;font-size:11px;">Product</span></th>
-        <td data-label="Product">
-          FUJIYAMA — LINE/WhatsApp Booking Automation SaaS.<br>
-          Automated reservation management via LINE and WhatsApp, integrated with Google Calendar and Google Sheets.
-        </td>
-      </tr>
-      <tr>
-        <th>販売価格<br><span style="font-weight:400;font-size:11px;">Price</span></th>
-        <td data-label="Price">
-          Monthly plan: USD $19.00/month (Starter) — taxes included.<br>
-          Annual plan: USD $180.00/year (Starter, approx. $15/month) — taxes included.<br>
-          Free 14-day trial available (no credit card required)
-        </td>
-      </tr>
-      <tr>
-        <th>支払い方法<br><span style="font-weight:400;font-size:11px;">Payment</span></th>
-        <td data-label="Payment">Credit / debit card via Stripe (Visa, Mastercard, Amex, JCB)</td>
-      </tr>
-      <tr>
-        <th>支払い時期<br><span style="font-weight:400;font-size:11px;">Billing timing</span></th>
-        <td data-label="Billing timing">
-          Monthly: charged automatically each month after trial ends.<br>
-          Annual: charged once per year at time of purchase.
-        </td>
-      </tr>
-      <tr>
-        <th>サービス提供時期<br><span style="font-weight:400;font-size:11px;">Delivery</span></th>
-        <td data-label="Delivery">Immediately accessible upon payment confirmation.</td>
-      </tr>
-      <tr>
-        <th>返品・返金<br><span style="font-weight:400;font-size:11px;">Refund policy</span></th>
-        <td data-label="Refund policy">
-          As a digital subscription service, refunds are not provided after the billing period begins, except in cases of a material service failure attributable to FUJIYAMA.<br>
-          You may cancel at any time; billing stops at the end of the current period.
-        </td>
-      </tr>
-      <tr>
-        <th>解約方法<br><span style="font-weight:400;font-size:11px;">Cancellation</span></th>
-        <td data-label="Cancellation">
-          Via the LemonSqueezy customer portal, or by emailing our support address. Effective end of current billing period.
-        </td>
-      </tr>
-      <tr>
-        <th>動作環境<br><span style="font-weight:400;font-size:11px;">Requirements</span></th>
-        <td data-label="Requirements">LINE app (iOS/Android), Google Account (for Calendar &amp; Sheets integration)</td>
-      </tr>
-    </table>
+    <p style="margin-top:28px;font-size:13px;color:var(--ink-soft);">All prices in USD. Taxes may apply. Subscription renews automatically until cancelled.</p>
   </div>
-</div>
 </section>
 
-<!-- FOOTER -->
+<div class="divider"></div>
+
+<section id="faq">
+  <div class="wrap">
+    <p class="label">FAQ</p>
+    <h2>Common <em>questions.</em></h2>
+    <div class="faq-grid">
+      <div class="faq-item"><h4>Do my customers need to install anything?</h4><p>No. They just message your existing LINE or WhatsApp account as usual. FUJIYAMA works behind the scenes.</p></div>
+      <div class="faq-item"><h4>What happens after the 14-day trial?</h4><p>The bot stops responding until you subscribe. Your booking history in Google Sheets stays safe.</p></div>
+      <div class="faq-item"><h4>Can I use it for multiple businesses?</h4><p>Standard covers 1 LINE channel. Pro covers up to 5. For larger operations, contact us.</p></div>
+      <div class="faq-item"><h4>What if the AI response is wrong?</h4><p>Booking actions (create, cancel, check) run on our reliable rule engine — no AI involved. AI is only used for casual chat replies.</p></div>
+      <div class="faq-item"><h4>Is it available outside Thailand and the Philippines?</h4><p>Yes. FUJIYAMA works anywhere LINE or WhatsApp is available. Currently optimised for SEA time zones.</p></div>
+      <div class="faq-item"><h4>Can I cancel my subscription?</h4><p>Yes, at any time via the PayPal subscription portal or by emailing us. No lock-in, no penalty.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="legal" style="background:white;">
+  <div class="wrap" style="max-width:1120px;margin:0 auto;padding:80px 48px;">
+    <p class="label">Legal</p>
+    <h2>Seller <em>Information</em><br>&amp; <strong>Legal Notices</strong></h2>
+    <p class="sub" style="margin-bottom:40px;">As required under Japan's Act on Specified Commercial Transactions (特定商取引法に基づく表記).</p>
+    <div class="legal-box">
+      <div class="legal-hd">
+        <span style="font-size:22px;">📋</span>
+        <div>
+          <h3>特定商取引法に基づく表記 / Specified Commercial Transactions Act</h3>
+          <p>TOKUSHO-HO DISCLOSURE · REQUIRED UNDER JAPANESE LAW</p>
+        </div>
+      </div>
+      <table class="legal-tbl">
+        <tr><th>事業者名<br><span style="font-weight:400;font-size:11px;">Business name</span></th><td data-label="Business name">石島佑実（屋号: FUJIYAMA）</td></tr>
+        <tr><th>代表者名<br><span style="font-weight:400;font-size:11px;">Representative</span></th><td data-label="Representative">石島佑実</td></tr>
+        <tr><th>所在地<br><span style="font-weight:400;font-size:11px;">Address</span></th><td data-label="Address">請求があり次第、遅滞なく開示します。<br><span style="font-size:13px;color:var(--ink-soft);">Provided upon request without delay.</span></td></tr>
+        <tr><th>電話番号<br><span style="font-weight:400;font-size:11px;">Phone</span></th><td data-label="Phone">請求があり次第、遅滞なく開示します。<br><span style="font-size:13px;color:var(--ink-soft);">Provided upon request without delay.</span></td></tr>
+        <tr><th>メールアドレス<br><span style="font-weight:400;font-size:11px;">Email</span></th><td data-label="Email"><a href="/cdn-cgi/l/email-protection#650a1d070a0a0e070a11161117041100021c250208040c094b060a08"><span class="__cf_email__" data-cfemail="8be4f3e9e4e4e0e9e4fff8fff9eaffeeecf2cbece6eae2e7a5e8e4e6">[email&#160;protected]</span></a></td></tr>
+        <tr><th>販売URL<br><span style="font-weight:400;font-size:11px;">Sales URL</span></th><td data-label="Sales URL"><a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-9ED8269022005582VNGZEMSI">paypal.com/subscribe (Monthly $19/mo)</a><br><a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-21L33068599439127NGZEOKA">paypal.com/subscribe (Annual $180/yr)</a></td></tr>
+        <tr><th>商品・サービス内容<br><span style="font-weight:400;font-size:11px;">Product</span></th><td data-label="Product">FUJIYAMA — LINE/WhatsApp Booking Automation SaaS. Automated reservation management via LINE and WhatsApp, integrated with Google Calendar and Google Sheets.</td></tr>
+        <tr><th>販売価格<br><span style="font-weight:400;font-size:11px;">Price</span></th><td data-label="Price">Monthly: USD $19.00/month (Starter)<br>Annual: USD $180.00/year (Starter, approx. $15/month)<br>Free 14-day trial available (no credit card required)</td></tr>
+        <tr><th>支払い方法<br><span style="font-weight:400;font-size:11px;">Payment</span></th><td data-label="Payment">PayPal subscription (credit / debit card, PayPal balance)</td></tr>
+        <tr><th>支払い時期<br><span style="font-weight:400;font-size:11px;">Billing timing</span></th><td data-label="Billing timing">Monthly: charged automatically each month after trial ends.<br>Annual: charged once per year at time of purchase.</td></tr>
+        <tr><th>サービス提供時期<br><span style="font-weight:400;font-size:11px;">Delivery</span></th><td data-label="Delivery">Immediately accessible upon payment confirmation.</td></tr>
+        <tr><th>返品・返金<br><span style="font-weight:400;font-size:11px;">Refund policy</span></th><td data-label="Refund policy">As a digital subscription service, refunds are not provided after the billing period begins, except in cases of a material service failure attributable to FUJIYAMA. You may cancel at any time; billing stops at the end of the current period.</td></tr>
+        <tr><th>解約方法<br><span style="font-weight:400;font-size:11px;">Cancellation</span></th><td data-label="Cancellation">Via the PayPal subscription management portal, or by emailing our support address. Effective end of current billing period.</td></tr>
+        <tr><th>動作環境<br><span style="font-weight:400;font-size:11px;">Requirements</span></th><td data-label="Requirements">LINE app (iOS/Android), Google Account (for Calendar &amp; Sheets integration)</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-top">
     <div>
       <div class="footer-logo">FUJI<em>YAMA</em></div>
       <p class="footer-tagline">LINE &amp; WhatsApp booking automation for Southeast Asia's small businesses.</p>
     </div>
-    <div class="footer-links-group">
-      <h5>Product</h5>
-      <ul>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#how">How It Works</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-    </div>
-    <div class="footer-links-group">
-      <h5>Legal</h5>
-      <ul>
-        <li><a href="#legal">Specified Commercial Transactions Act</a></li>
-        <li><a href="#legal">特定商取引法に基づく表記</a></li>
-      </ul>
-    </div>
-    <div class="footer-links-group">
-      <h5>Contact</h5>
-      <ul>
-        <li><a href="mailto:oxbookbotstrategy@gmail.com">oxbookbotstrategy@gmail.com</a></li>
-        <li><a href="https://fujiyama.lemonsqueezy.com/checkout/buy/022ab795-902d-4809-8d9c-b579f4501912">Start Free Trial</a></li>
-      </ul>
-    </div>
+    <div class="footer-links-group"><h5>Product</h5><ul><li><a href="#features">Features</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#how">How It Works</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+    <div class="footer-links-group"><h5>Legal</h5><ul><li><a href="#legal">Specified Commercial Transactions Act</a></li><li><a href="#legal">特定商取引法に基づく表記</a></li></ul></div>
+    <div class="footer-links-group"><h5>Contact</h5><ul><li><a href="/cdn-cgi/l/email-protection#81eef9e3eeeeeae3eef5f2f5f3e0f5e4e6f8c1e6ece0e8edafe2eeec"><span class="__cf_email__" data-cfemail="b6d9ced4d9d9ddd4d9c2c5c2c4d7c2d3d1cff6d1dbd7dfda98d5d9db">[email&#160;protected]</span></a></li><li><a href="#pricing">Start Free Trial</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p class="footer-copy">© 2025 FUJIYAMA. All rights reserved.</p>
-    <div class="footer-legal-links">
-      <a href="#legal">Legal Notice</a>
-      <a href="#legal">特定商取引法</a>
-    </div>
+    <div class="footer-legal-links"><a href="#legal">Legal Notice</a><a href="#legal">特定商取引法</a></div>
   </div>
 </footer>
 
+<!-- PayPal SDK -->
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://www.paypal.com/sdk/js?client-id=AeqvYgB2_7DrhJjAcV24czJFPU1CF-ouWA6BCTw-H6HaEZesKFbpJCIv5G7DxA4t8xI8atMKwLdQaL2m&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+
 <script>
-// Hamburger menu
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+document.addEventListener('click', (e) => { if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) closeMenu(); });
 
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-});
-
-function closeMenu() {
-  hamburger.classList.remove('open');
-  mobileMenu.classList.remove('open');
-}
-
-// Close on outside click
-document.addEventListener('click', (e) => {
-  if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-    closeMenu();
-  }
-});
-
-// Pricing toggle
 function setPlan(mode) {
   if (mode === 'annual') {
+    currentPlan = PLAN_ANNUAL;
     document.body.classList.add('annual');
     document.getElementById('btn-annual').classList.add('active');
     document.getElementById('btn-monthly').classList.remove('active');
   } else {
+    currentPlan = PLAN_MONTHLY;
     document.body.classList.remove('annual');
     document.getElementById('btn-monthly').classList.add('active');
     document.getElementById('btn-annual').classList.remove('active');
   }
 }
 
-// Scroll reveal
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.style.opacity = '1';
-      e.target.style.transform = 'translateY(0)';
-    }
-  });
+  entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
 }, { threshold: 0.08 });
-
 document.querySelectorAll('.feat, .step, .who-item, .plan, .faq-item').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(16px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  el.style.opacity='0'; el.style.transform='translateY(16px)'; el.style.transition='opacity 0.5s ease, transform 0.5s ease';
   observer.observe(el);
+});
+
+
+var annualRendered = false;
+
+// 現在のプランID（デフォルト月払い）
+var PLAN_MONTHLY = 'P-9ED8269022005582VNGZEMSI';
+var PLAN_ANNUAL  = 'P-21L33068599439127NGZEOKA';
+var currentPlan  = PLAN_MONTHLY;
+
+function makeBtn(containerId) {
+  paypal.Buttons({
+    style: { shape: 'rect', color: 'blue', layout: 'vertical', label: 'subscribe' },
+    createSubscription: function(data, actions) {
+      return actions.subscription.create({ plan_id: currentPlan });
+    },
+    onApprove: function(data) { alert(data.subscriptionID); }
+  }).render('#' + containerId);
+}
+
+// PayPal SDKが読み込めた場合のみrender（ローカル環境・SDK失敗時のクラッシュ防止）
+window.addEventListener('load', function() {
+  if (typeof paypal === 'undefined') return;
+  makeBtn('paypal-btn-trial');
+  makeBtn('paypal-btn-starter');
 });
 </script>
 
