@@ -347,8 +347,7 @@ footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
           <li>Cancellation handling</li>
           <li class="dim">No credit card required</li>
         </ul>
-        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-9ED8269022005582VNGZEMSI" target="_blank" class="plan-cta show-monthly">Start free trial →</a>
-        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-21L33068599439127NGZEOKA" target="_blank" class="plan-cta show-annual">Start free trial →</a>
+        <a id="cta-trial" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-9ED8269022005582VNGZEMSI" target="_blank" class="plan-cta">Start free trial →</a>
       </div>
       <!-- Starter -->
       <div class="plan featured">
@@ -367,8 +366,7 @@ footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
           <li>Email support</li>
           <li class="dim">No lock-in, cancel any time</li>
         </ul>
-        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-9ED8269022005582VNGZEMSI" target="_blank" class="plan-cta show-monthly">Get started →</a>
-        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-21L33068599439127NGZEOKA" target="_blank" class="plan-cta show-annual">Get started →</a>
+        <a id="cta-starter" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-9ED8269022005582VNGZEMSI" target="_blank" class="plan-cta">Get started →</a>
       </div>
     </div>
     <p style="margin-top:28px;font-size:13px;color:var(--ink-soft);">All prices in USD. Taxes may apply. Subscription renews automatically until cancelled.</p>
@@ -452,7 +450,13 @@ hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); 
 function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
 document.addEventListener('click', (e) => { if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) closeMenu(); });
 
+var URL_MONTHLY = 'https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-9ED8269022005582VNGZEMSI';
+var URL_ANNUAL  = 'https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-21L33068599439127NGZEOKA';
+
 function setPlan(mode) {
+  var url = mode === 'annual' ? URL_ANNUAL : URL_MONTHLY;
+  document.getElementById('cta-trial').href   = url;
+  document.getElementById('cta-starter').href = url;
   if (mode === 'annual') {
     document.body.classList.add('annual');
     document.getElementById('btn-annual').classList.add('active');
