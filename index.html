@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,21 +11,13 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --sand:       #f5f0e8;
-  --sand-dark:  #e8e1d5;
-  --sand-deep:  #d4cbbf;
-  --ink:        #1a1612;
-  --ink-mid:    #3a342c;
-  --ink-soft:   #6b6259;
-  --jade:       #0d5c47;
-  --jade-light: #138a6a;
-  --jade-glow:  #1dba90;
-  --gold:       #c9862a;
-  --gold-light: #f0a33c;
-  --red:        #c0392b;
+  --sand: #f5f0e8; --sand-dark: #e8e1d5; --sand-deep: #d4cbbf;
+  --ink: #1a1612; --ink-mid: #3a342c; --ink-soft: #6b6259;
+  --jade: #0d5c47; --jade-light: #138a6a; --jade-glow: #1dba90;
+  --gold: #c9862a; --gold-light: #f0a33c; --red: #c0392b;
   --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans:  'Plus Jakarta Sans', system-ui, sans-serif;
-  --mono:  'DM Mono', 'Courier New', monospace;
+  --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
   --radius: 12px;
 }
 html { scroll-behavior: smooth; }
@@ -125,7 +116,6 @@ h2 em { font-style: italic; color: var(--jade); }
 .plan-features li::before { content: '✓'; color: var(--jade); font-weight: 700; flex-shrink: 0; }
 .plan-features li.dim { color: var(--ink-soft); }
 .plan-features li.dim::before { content: '–'; color: var(--sand-deep); }
-/* pricing toggle */
 .annual-price { display: none; }
 .monthly-price { display: block; }
 body.annual .annual-price { display: block; }
@@ -138,7 +128,6 @@ body.annual .show-annual { display: block; }
 .plan-cta:hover { border-color: var(--ink-mid); background: rgba(26,22,18,0.04); }
 .plan.featured .plan-cta { background: var(--jade); border-color: var(--jade); color: white; }
 .plan.featured .plan-cta:hover { background: var(--jade-light); }
-/* legal */
 #legal { background: white; }
 .legal-box { border: 1px solid var(--sand-deep); border-radius: 16px; overflow: hidden; }
 .legal-hd { background: var(--sand); padding: 24px 36px; border-bottom: 1px solid var(--sand-deep); display: flex; align-items: center; gap: 14px; }
@@ -185,28 +174,31 @@ footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
   #features .features-grid { grid-template-columns: repeat(2, 1fr); }
   #how .steps { grid-template-columns: 1fr; } .step-arrow { display: none; }
   .pricing-grid { grid-template-columns: 1fr 1fr; gap: 16px; max-width: 100%; }
-  .faq-grid { gap: 0 40px; }
-  .chat-phone { transform: scale(0.9); transform-origin: top right; }
+  .faq-grid { gap: 0 40px; } .chat-phone { transform: scale(0.9); transform-origin: top right; }
 }
 @media (max-width: 768px) {
   nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; }
   .hero { grid-template-columns: 1fr; padding: 90px 20px 56px; gap: 0; } .hero-right { display: none; }
   h1 { font-size: clamp(40px, 10vw, 56px); } .hero-desc { font-size: 16px; }
-  .cta-row { flex-direction: column; align-items: stretch; } .btn-jade, .btn-ghost { justify-content: center; }
-  .wrap { padding: 56px 20px; } h2 { font-size: clamp(28px, 8vw, 40px); } .sub { font-size: 15px; margin-bottom: 36px; }
+  .cta-row { flex-direction: column; align-items: stretch; }
+  .btn-jade, .btn-ghost { justify-content: center; }
+  .wrap { padding: 56px 20px; } h2 { font-size: clamp(28px, 8vw, 40px); }
+  .sub { font-size: 15px; margin-bottom: 36px; }
   #features .features-grid { grid-template-columns: 1fr; } .feat { padding: 28px 24px; }
   #who .wrap, .who-wrap-inner { grid-template-columns: 1fr !important; gap: 36px !important; padding: 56px 20px !important; }
-  .who-item { padding: 20px; }
-  #how .steps { grid-template-columns: 1fr; } .step-arrow { display: none; } .step { padding: 28px 24px; } .step-n { font-size: 48px; margin-bottom: 12px; }
+  .who-item { padding: 20px; } #how .steps { grid-template-columns: 1fr; } .step-arrow { display: none; }
+  .step { padding: 28px 24px; } .step-n { font-size: 48px; margin-bottom: 12px; }
   #pricing .wrap { padding: 56px 20px; } .pricing-grid { grid-template-columns: 1fr; }
   .toggle-row { width: 100%; } .toggle-btn { flex: 1; text-align: center; }
   .faq-grid { grid-template-columns: 1fr; gap: 0; } .faq-item { padding: 20px 0; }
-  #legal .wrap { padding: 48px 20px; } .legal-hd { padding: 18px 20px; flex-wrap: wrap; gap: 8px; } .legal-hd h3 { font-size: 16px; }
-  .legal-tbl th { display: none; } .legal-tbl td { padding: 16px 20px; display: block; border-bottom: 1px solid var(--sand-dark); }
+  #legal .wrap { padding: 48px 20px; } .legal-hd { padding: 18px 20px; flex-wrap: wrap; gap: 8px; }
+  .legal-hd h3 { font-size: 16px; } .legal-tbl th { display: none; }
+  .legal-tbl td { padding: 16px 20px; display: block; border-bottom: 1px solid var(--sand-dark); }
   .legal-tbl tr:last-child td { border-bottom: none; }
   .legal-tbl td::before { content: attr(data-label); display: block; font-size: 11px; font-weight: 700; color: var(--ink-soft); margin-bottom: 6px; font-family: var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
   footer { padding: 40px 20px 28px; } .footer-top { flex-direction: column; gap: 32px; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; } .footer-links-group { display: none; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .footer-links-group { display: none; }
 }
 @media (max-width: 400px) { h1 { font-size: 36px; } .plan-price { font-size: 44px; } }
 </style>
@@ -219,6 +211,7 @@ footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
     <li><a href="#features">Features</a></li>
     <li><a href="#who">Who It's For</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="https://topaz-industry-db0.notion.site/FUJIYAMA-Complete-Guide-3211044cc2be804db636d11615838b1b" target="_blank">Docs</a></li>
     <li><a href="#legal">Legal</a></li>
     <li><a href="#pricing" class="nav-cta">Start Free Trial</a></li>
   </ul>
@@ -231,6 +224,7 @@ footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
   <a href="#features" onclick="closeMenu()">Features</a>
   <a href="#who" onclick="closeMenu()">Who It's For</a>
   <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="https://topaz-industry-db0.notion.site/FUJIYAMA-Complete-Guide-3211044cc2be804db636d11615838b1b" target="_blank" onclick="closeMenu()">Docs</a>
   <a href="#legal" onclick="closeMenu()">Legal</a>
   <a href="#pricing" onclick="closeMenu()">Start Free Trial →</a>
 </nav>
@@ -246,6 +240,7 @@ footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
         <a href="#how" class="btn-ghost">See how it works</a>
       </div>
       <p class="hero-note">No credit card required. <strong>5-minute setup.</strong> No coding.</p>
+      <p style="margin-top:8px;font-size:13px;color:var(--ink-soft);">📖 <a href="https://topaz-industry-db0.notion.site/FUJIYAMA-Complete-Guide-3211044cc2be804db636d11615838b1b" target="_blank" style="color:var(--jade);text-decoration:none;font-weight:500;">Full feature guide &amp; setup docs →</a></p>
     </div>
     <div class="hero-right">
       <div class="chat-phone">
@@ -331,7 +326,6 @@ footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
       <button class="toggle-btn" id="btn-annual" onclick="setPlan('annual')">Annual <span class="save-badge">Save 30%</span></button>
     </div>
     <div class="pricing-grid">
-      <!-- Free Trial -->
       <div class="plan">
         <p class="plan-tier">Free Trial</p>
         <div class="plan-price monthly-price"><sup>$</sup>0<span class="per"> / 14 days</span></div>
@@ -349,7 +343,6 @@ footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
         </ul>
         <a id="cta-trial" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-9ED8269022005582VNGZEMSI" target="_blank" class="plan-cta">Start free trial →</a>
       </div>
-      <!-- Starter -->
       <div class="plan featured">
         <div class="plan-badge">GET STARTED</div>
         <p class="plan-tier">Starter</p>
@@ -410,7 +403,7 @@ footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
         <tr><th>代表者名<br><span style="font-weight:400;font-size:11px;">Representative</span></th><td data-label="Representative">石島佑実</td></tr>
         <tr><th>所在地<br><span style="font-weight:400;font-size:11px;">Address</span></th><td data-label="Address">請求があり次第、遅滞なく開示します。<br><span style="font-size:13px;color:var(--ink-soft);">Provided upon request without delay.</span></td></tr>
         <tr><th>電話番号<br><span style="font-weight:400;font-size:11px;">Phone</span></th><td data-label="Phone">請求があり次第、遅滞なく開示します。<br><span style="font-size:13px;color:var(--ink-soft);">Provided upon request without delay.</span></td></tr>
-        <tr><th>メールアドレス<br><span style="font-weight:400;font-size:11px;">Email</span></th><td data-label="Email"><a href="/cdn-cgi/l/email-protection#650a1d070a0a0e070a11161117041100021c250208040c094b060a08"><span class="__cf_email__" data-cfemail="8be4f3e9e4e4e0e9e4fff8fff9eaffeeecf2cbece6eae2e7a5e8e4e6">[email&#160;protected]</span></a></td></tr>
+        <tr><th>メールアドレス<br><span style="font-weight:400;font-size:11px;">Email</span></th><td data-label="Email"><a href="mailto:oxbookbotstrategy@gmail.com">oxbookbotstrategy@gmail.com</a></td></tr>
         <tr><th>販売URL<br><span style="font-weight:400;font-size:11px;">Sales URL</span></th><td data-label="Sales URL"><a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-9ED8269022005582VNGZEMSI">paypal.com/subscribe (Monthly $19/mo)</a><br><a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-21L33068599439127NGZEOKA">paypal.com/subscribe (Annual $180/yr)</a></td></tr>
         <tr><th>商品・サービス内容<br><span style="font-weight:400;font-size:11px;">Product</span></th><td data-label="Product">FUJIYAMA — LINE/WhatsApp Booking Automation SaaS. Automated reservation management via LINE and WhatsApp, integrated with Google Calendar and Google Sheets.</td></tr>
         <tr><th>販売価格<br><span style="font-weight:400;font-size:11px;">Price</span></th><td data-label="Price">Monthly: USD $19.00/month (Starter)<br>Annual: USD $180.00/year (Starter, approx. $15/month)<br>Free 14-day trial available (no credit card required)</td></tr>
@@ -431,9 +424,21 @@ footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
       <div class="footer-logo">FUJI<em>YAMA</em></div>
       <p class="footer-tagline">LINE &amp; WhatsApp booking automation for Southeast Asia's small businesses.</p>
     </div>
-    <div class="footer-links-group"><h5>Product</h5><ul><li><a href="#features">Features</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#how">How It Works</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-    <div class="footer-links-group"><h5>Legal</h5><ul><li><a href="#legal">Specified Commercial Transactions Act</a></li><li><a href="#legal">特定商取引法に基づく表記</a></li></ul></div>
-    <div class="footer-links-group"><h5>Contact</h5><ul><li><a href="/cdn-cgi/l/email-protection#81eef9e3eeeeeae3eef5f2f5f3e0f5e4e6f8c1e6ece0e8edafe2eeec"><span class="__cf_email__" data-cfemail="b6d9ced4d9d9ddd4d9c2c5c2c4d7c2d3d1cff6d1dbd7dfda98d5d9db">[email&#160;protected]</span></a></li><li><a href="#pricing">Start Free Trial</a></li></ul></div>
+    <div class="footer-links-group"><h5>Product</h5><ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="https://topaz-industry-db0.notion.site/FUJIYAMA-Complete-Guide-3211044cc2be804db636d11615838b1b" target="_blank">Complete Guide</a></li>
+    </ul></div>
+    <div class="footer-links-group"><h5>Legal</h5><ul>
+      <li><a href="#legal">Specified Commercial Transactions Act</a></li>
+      <li><a href="#legal">特定商取引法に基づく表記</a></li>
+    </ul></div>
+    <div class="footer-links-group"><h5>Contact</h5><ul>
+      <li><a href="mailto:oxbookbotstrategy@gmail.com">oxbookbotstrategy@gmail.com</a></li>
+      <li><a href="#pricing">Start Free Trial</a></li>
+    </ul></div>
   </div>
   <div class="footer-bottom">
     <p class="footer-copy">© 2025 FUJIYAMA. All rights reserved.</p>
@@ -441,21 +446,25 @@ footer { background: var(--ink); color: var(--sand); padding: 56px 48px 40px; }
   </div>
 </footer>
 
-<!-- PayPal: direct links, no SDK needed -->
-
 <script>
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
-hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
-function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
-document.addEventListener('click', (e) => { if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) closeMenu(); });
-
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+document.addEventListener('click', (e) => {
+  if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) closeMenu();
+});
 var URL_MONTHLY = 'https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-9ED8269022005582VNGZEMSI';
 var URL_ANNUAL  = 'https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-21L33068599439127NGZEOKA';
-
 function setPlan(mode) {
   var url = mode === 'annual' ? URL_ANNUAL : URL_MONTHLY;
-  document.getElementById('cta-trial').href   = url;
+  document.getElementById('cta-trial').href = url;
   document.getElementById('cta-starter').href = url;
   if (mode === 'annual') {
     document.body.classList.add('annual');
@@ -467,16 +476,17 @@ function setPlan(mode) {
     document.getElementById('btn-annual').classList.remove('active');
   }
 }
-
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+  });
 }, { threshold: 0.08 });
 document.querySelectorAll('.feat, .step, .who-item, .plan, .faq-item').forEach(el => {
-  el.style.opacity='0'; el.style.transform='translateY(16px)'; el.style.transition='opacity 0.5s ease, transform 0.5s ease';
+  el.style.opacity='0';
+  el.style.transform='translateY(16px)';
+  el.style.transition='opacity 0.5s ease, transform 0.5s ease';
   observer.observe(el);
 });
-
 </script>
-
 </body>
 </html>
